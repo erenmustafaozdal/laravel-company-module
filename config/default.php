@@ -56,7 +56,7 @@ return [
         'uploads' => [
             // company photo options
             'photo' => [
-                'relation'              => 'hasOne',
+                'relation'              => 'hasMany',
                 'relation_model'        => '\App\CompanyPhoto',
                 'type'                  => 'image',
                 'column'                => 'photos.photo',

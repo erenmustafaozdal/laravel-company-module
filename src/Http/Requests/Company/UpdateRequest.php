@@ -36,11 +36,11 @@ class UpdateRequest extends Request
             'meta_title'        => 'max:255',
             'meta_description'  => 'max:255',
             'meta_keywords'     => 'max:255',
-            'value_title'       => 'required_with:value|max:255',
-            'value'             => 'required_with:value_title',
+            'group-value'       => 'array',
+            'value_title'       => '',
+            'value'             => '',
         ];
 
-        dd($this->all());
         // photo elfinder mi
         if ($this->has('photo') && is_string($this->photo)) {
             $rules['photo'] = "elfinder_max:{$max_photo}|elfinder:{$mimes_photo}";

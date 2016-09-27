@@ -2,6 +2,7 @@
 
 namespace ErenMustafaOzdal\LaravelCompanyModule\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Company;
 
@@ -56,17 +57,18 @@ class CompanyController extends BaseController
         ]);
         $this->setToFileOptions($request, ['photos.photo' => 'photo']);
         $relation = [];
-        if ($request->has('value') && $request->has('value_title')) {
-            $valueTitle = $request->get('value_title');
-            $this->relations['values']['datas'] = collect($request->get('value'))->map(function($item,$key) use($valueTitle)
+        if ($request->has('group-value')) {
+            $this->relations['values']['datas'] = collect($request->get('group-value'))->map(function($item,$key)
             {
-                $item['title'] = $valueTitle[$key]['value_title'];
+                $item['title'] = $item['value_title'];
+                unsetReturn($item,'value_title');
                 return $item;
             });
             $relation[] = $this->relations['values'];
         }
         $this->setOperationRelation($relation);
-        return is_null($company) ? $this->storeModel(Company::class,'edit') : $this->updateModel($company,'edit', true);
+        is_null($company) ? $this->storeModel(Company::class,'edit') : $this->updateModel($company,'edit', false);
+        return redirect( lmbRoute("admin.company.edit") );
     }
 
     /**
