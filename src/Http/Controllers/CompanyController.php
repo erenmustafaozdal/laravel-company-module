@@ -27,6 +27,7 @@ class CompanyController extends BaseController
             'relation_type'     => 'hasMany',
             'relation'          => 'values',
             'relation_model'    => '\App\CompanyValue',
+            'is_reset'          => true,
             'datas'             => null
         ]
     ];
