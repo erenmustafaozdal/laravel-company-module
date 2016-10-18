@@ -2,7 +2,11 @@
 //max level nested function 100 hatasını düzeltiyor
 ini_set('xdebug.max_nesting_level', 300);
 
-/*==========  Company Module  ==========*/
+/*
+|--------------------------------------------------------------------------
+| Company Module
+|--------------------------------------------------------------------------
+*/
 Route::group([
     'prefix'        => config('laravel-company-module.url.admin_url_prefix'),
     'middleware'    => config('laravel-company-module.url.middleware'),
