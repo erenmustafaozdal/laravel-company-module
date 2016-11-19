@@ -110,8 +110,16 @@ return [
             'title'                 => 'Firma Profili',
             'routes' => [
                 'admin.company.edit' => [
-                    'title'         => 'Düzenleme',
-                    'description'   => 'Bu izne sahip olanlar firma profilini düzenleyebilir',
+                    'title'         => 'Güncelleme Sayfası',
+                    'description'   => 'Bu izne sahip olanlar firma profilini güncelleme sayfasına gidebilir.',
+                ],
+                'admin.company.update' => [
+                    'title'         => 'Güncelleme',
+                    'description'   => 'Bu izne sahip olanlar firma profilini güncelleyebilir.',
+                ],
+                'admin.company.removePhoto' => [
+                    'title'         => 'Fotoğraf Silme',
+                    'description'   => 'Bu izne sahip olanlar firma profili fotoğrafını silebilir.',
                 ],
             ],
         ],
