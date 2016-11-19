@@ -94,4 +94,26 @@ return [
             ]
         ]
     ],
+
+
+
+
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Permissions
+    |--------------------------------------------------------------------------
+    */
+    'permissions' => [
+        'company' => [
+            'title'                 => 'Firma Profili',
+            'routes' => [
+                'admin.company.edit' => [
+                    'title'         => 'Düzenleme',
+                    'description'   => 'Bu izne sahip olanlar firma profilini düzenleyebilir',
+                ],
+            ],
+        ],
+    ],
 ];
