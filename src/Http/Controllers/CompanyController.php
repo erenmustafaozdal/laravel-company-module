@@ -59,7 +59,10 @@ class CompanyController extends BaseController
         $this->setToFileOptions($request, ['photos.photo' => 'photo']);
         $relation = [];
         if ($request->has('group-value')) {
-            $this->relations['values']['datas'] = collect($request->get('group-value'))->map(function($item,$key)
+            $this->relations['values']['datas'] = collect($request->get('group-value'))->reject(function($item)
+            {
+                return $item['value_title'] == '';
+            })->map(function($item,$key)
             {
                 $item['title'] = $item['value_title'];
                 unsetReturn($item,'value_title');
