@@ -29,7 +29,6 @@ class UpdateRequest extends Request
 
         $rules = [
             'title'             => 'required|max:255',
-            'slug'              => 'alpha_dash|max:255',
             'meta_title'        => 'max:255',
             'meta_description'  => 'max:255',
             'meta_keywords'     => 'max:255',

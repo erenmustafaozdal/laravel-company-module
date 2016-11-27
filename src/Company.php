@@ -24,7 +24,6 @@ class Company extends Model
      */
     protected $fillable = [
         'title',
-        'slug',
         'company_profile',
         'mission',
         'vision',
