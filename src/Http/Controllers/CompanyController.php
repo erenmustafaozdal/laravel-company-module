@@ -58,7 +58,10 @@ class CompanyController extends BaseController
         ]);
         $this->setToFileOptions($request, ['photos.photo' => 'photo']);
         $relation = [];
-        $company->values()->delete();
+
+        if ( ! is_null($company)) {
+            $company->values()->delete();
+        }
         if ($request->has('group-value')) {
             $this->relations['values']['datas'] = collect($request->get('group-value'))->reject(function($item)
             {
