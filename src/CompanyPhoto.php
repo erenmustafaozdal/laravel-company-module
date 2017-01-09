@@ -78,6 +78,17 @@ class CompanyPhoto extends Model
         parent::boot();
 
         /**
+         * model saved method
+         *
+         * @param $model
+         */
+        parent::saved(function($model)
+        {
+            // cache forget
+            \Cache::forget('company_photos');
+        });
+
+        /**
          * model deleted method
          *
          * @param $model
@@ -86,6 +97,9 @@ class CompanyPhoto extends Model
         {
             $file = new FileRepository(config('laravel-company-module.company.uploads'));
             $file->deletePhoto($model, 'company');
+
+            // cache forget
+            \Cache::forget('company_photos');
         });
     }
 }
