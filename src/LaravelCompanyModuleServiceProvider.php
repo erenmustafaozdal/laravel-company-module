@@ -39,34 +39,5 @@ class LaravelCompanyModuleServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(
             __DIR__.'/../config/laravel-company-module.php', 'laravel-company-module'
         );
-        // merge default configs with publish configs
-        $this->mergeDefaultConfig();
-    }
-
-    /**
-     * merge default configs with publish configs
-     */
-    protected function mergeDefaultConfig()
-    {
-        $config = $this->app['config']->get('laravel-company-module', []);
-        $default = require __DIR__.'/../config/default.php';
-
-        $config['routes'] = $default['routes'];
-
-
-        $path = unsetReturn($config['company']['uploads'],'path');
-        $default['company']['uploads']['photo']['path'] = $path;
-        $max_size = unsetReturn($config['company']['uploads'],'max_size');
-        $default['company']['uploads']['photo']['max_size'] = $max_size;
-        $default['company']['uploads']['photo']['max_file'] = unsetReturn($config['company']['uploads'],'upload_max_file');
-        $aspect_ratio = unsetReturn($config['company']['uploads'],'photo_aspect_ratio');
-        $default['company']['uploads']['photo']['aspect_ratio'] = $aspect_ratio;
-        $mimes = unsetReturn($config['company']['uploads'],'photo_mimes');
-        $default['company']['uploads']['photo']['mimes'] = $mimes;
-        $thumbnails = unsetReturn($config['company']['uploads'],'photo_thumbnails');
-        $default['company']['uploads']['photo']['thumbnails'] = $thumbnails;
-        $config['company']['uploads']['photo'] = $default['company']['uploads']['photo'];
-
-        $this->app['config']->set('laravel-company-module', $config);
     }
 }
