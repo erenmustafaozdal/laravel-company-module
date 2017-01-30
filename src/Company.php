@@ -151,6 +151,7 @@ class Company extends Model
         {
             // cache forget
             \Cache::forget('companies');
+            \Cache::forget('company_values');
         });
 
         /**
@@ -162,6 +163,7 @@ class Company extends Model
         {
             // cache forget
             \Cache::forget('companies');
+            \Cache::forget('company_values');
         });
     }
 }
